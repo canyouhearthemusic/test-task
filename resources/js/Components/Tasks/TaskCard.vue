@@ -12,7 +12,7 @@ const isCompleted = computed(() => {
 })
 
 function patch() {
-    router.patch(route('task.patch'), {
+    router.patch(route('tasks.patch'), {
         'id': props.task.id
     })
 }
@@ -35,7 +35,7 @@ function patch() {
 
                 <div class="flex items-start gap-x-3">
                     <Link
-                        :href="route('task.edit', task.id)"
+                        :href="route('tasks.edit', task.id)"
                         method="get"
                         as="button"
                     >
@@ -43,7 +43,7 @@ function patch() {
                     </Link>
 
                     <Link
-                        :href="route('task.destroy')"
+                        :href="route('tasks.destroy')"
                         method="delete"
                         as="button"
                         :data="{ 'id': task.id }"

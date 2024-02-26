@@ -28,5 +28,4 @@ class Task extends Model
             default => $query->latest()
         };
     }
-
 }

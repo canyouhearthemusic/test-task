@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\GoogleSheetController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [TaskController::class, 'index'])->name('task.index');
-Route::post('/', [TaskController::class, 'store'])->name('task.store');
-Route::get('/{id}', [TaskController::class, 'edit'])->name('task.edit');
-Route::put('/{id}', [TaskController::class, 'update'])->name('task.update');
-Route::patch('/', [TaskController::class, 'patch'])->name('task.patch');
-Route::delete('/', [TaskController::class, 'destroy'])->name('task.destroy');
+Route::controller(TaskController::class)->name('tasks.')->group(function() {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{id}', 'edit')->name('edit');
+    Route::put('/{id}', 'update')->name('update');
+    Route::patch('/', 'patch')->name('patch');
+    Route::delete('/', 'destroy')->name('destroy');
+});
 

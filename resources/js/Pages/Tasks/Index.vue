@@ -21,14 +21,14 @@ const sortingValue = ref('');
 
 watch(sortingValue, (newValue) => {
     router.get(
-        route('task.index'),
+        route('tasks.index'),
         { sort: newValue },
         { replace:true, preserveState: true, preserveScroll: true }
     )
 })
 
 function submit() {
-    form.post(route('task.store'),{
+    form.post(route('tasks.store'),{
         preserveState: true,
         preserveScroll: true,
         onSuccess: () => {

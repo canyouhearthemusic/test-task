@@ -15,7 +15,7 @@ const form = useForm({
 });
 
 function submit() {
-    form.put(route('task.update', props.task.id),{
+    form.put(route('tasks.update', props.task.id),{
         preserveState: true,
         preserveScroll: true,
     })

@@ -28,7 +28,7 @@ class TaskController extends Controller
     {
         $this->taskService->createTask($request->validated());
 
-        return to_route('task.index')->with(['success', 'Task has been created!']);
+        return to_route('tasks.index')->with(['success', 'Task has been created!']);
     }
 
     public function edit(int $id)
@@ -42,21 +42,21 @@ class TaskController extends Controller
     {
         $this->taskService->updateTask($id, $request->validated());
 
-        return to_route('task.index')->with(['success' => "Task with id {$id} has been updated!"]);
+        return to_route('tasks.index')->with(['success' => "Task with id {$id} has been updated!"]);
     }
 
     public function patch(Request $request)
     {
         $this->taskService->toggleStatus($request->id);
 
-        return to_route('task.index')->with(['success' => "Task with id {$request->id} has been updated!"]);
+        return to_route('tasks.index')->with(['success' => "Task with id {$request->id} has been updated!"]);
     }
 
     public function destroy(Request $request)
     {
         $this->taskService->deleteTask($request->id);
 
-        return to_route('task.index')->with(['success' => 'Task has been deleted!']);
+        return to_route('tasks.index')->with(['success' => 'Task has been deleted!']);
     }
 
 }
